@@ -61,4 +61,4 @@ customerSchema.pre("save", async function (next) {
   }
 });
 
-module.exports = mongoose.model("Customer", customerSchema);
+module.exports = mongoose.model("Consumer", customerSchema);
