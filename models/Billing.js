@@ -73,19 +73,6 @@ const billingSchema = new Schema(
     notes: {
       type: String,
     },
-    // previousMonth: {
-    //   type: String,
-    // },
-    // previousYear: {
-    //   type: String,
-    // },
-    // presentMonth: {
-    //   type: String,
-    // },
-    // presentYear: {
-    //   type: String,
-    // },
-
   },
   {
     timestamps: true,

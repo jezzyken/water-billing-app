@@ -29,18 +29,4 @@ const meterReadingSchema = new Schema(
   }
 );
 
-//  consumptionId
-//  billingDate
-//  dueDate
-//  previousDate
-//  previousRead
-//  presentDate
-//  presentRead
-//  cubicConsumption
-//  readType
-//  meterDescription
-//  presentBill
-//  previousBalance
-//  consumerId
-
 module.exports = mongoose.model("MeterReading", meterReadingSchema);
