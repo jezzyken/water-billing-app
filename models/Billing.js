@@ -50,8 +50,8 @@ const billingSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["Pending", "Paid", "Overdue"],
-      default: "Pending",
+      enum: ["Unpaid", "Paid", "Overdue"],
+      default: "Unpaid",
     },
     isOverdue: {
       type: Boolean,
