@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const expenseSchema = new Schema({
   expenseId: {
     type: String,
-    unique: true,
   },
   date: {
     type: Date,
@@ -12,7 +11,7 @@ const expenseSchema = new Schema({
   amount: {
     type: Number,
   },
-  category: {
+  expenseType: {
     type: String,
   },
   description: {
