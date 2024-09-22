@@ -1,6 +1,6 @@
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
-const service = require("../services/billing");
+const service = require("../services/expense");
 
 const get = catchAsync(async (req, res) => {
   const result = await service.get();
@@ -19,31 +19,6 @@ const getById = catchAsync(async (req, res, next) => {
   }
   const data = {
     success: true,
-    success: true,
-    result,
-  };
-  return res.status(200).send(data);
-});
-
-const getConsumerItemById = catchAsync(async (req, res, next) => {
-  const result = await service.getConsumerItemById(req.params.id);
-
-  if (!result) {
-    return next(new AppError("No Item found with that ID", 404));
-  }
-  const data = {
-    success: true,
-    result,
-  };
-  return res.status(200).send(data);
-});
-const getConsumerItemsById = catchAsync(async (req, res, next) => {
-  const result = await service.getConsumerItemsById(req.params.id);
-
-  if (!result) {
-    return next(new AppError("No Item found with that ID", 404));
-  }
-  const data = {
     success: true,
     result,
   };
@@ -80,18 +55,10 @@ const remove = catchAsync(async (req, res) => {
   return res.status(200).send(data);
 });
 
-const sendHTMLTemplate = catchAsync(async (req, res) => {
-  const result = await service.sendHTMLTemplate();
-  return res.status(200).sendFile(result);
-});
-
 module.exports = {
   get,
   getById,
-  getConsumerItemById,
-  getConsumerItemsById,
   add,
   update,
   remove,
-  sendHTMLTemplate
 };

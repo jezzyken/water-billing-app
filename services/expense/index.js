@@ -1,5 +1,4 @@
-const Models = require("../../models/Consumer");
-const CollectionModel = require("../../models/Collection");
+const Models = require("../../models/Expense");
 
 const get = async () => {
   const result = await Models.find();
@@ -11,20 +10,8 @@ const getById = async (id) => {
   return result;
 };
 const add = async (req) => {
-  const { consumer, payment } = req.body;
-  
-  const consumerData = new Models(consumer);
-
-  if (!consumer.isMember) {
-    const paymentData = new CollectionModel({
-      ...payment,
-      consumerId: consumerData._id,
-    });
-    await paymentData.save();
-    consumerData.isMember = true
-    consumerData.paymentDescription = "Membership Fee"
-  }
-  return await consumerData.save();
+  const newItems = new Models(req.body);
+  return await newItems.save();
 };
 
 const update = async (id, data) => {

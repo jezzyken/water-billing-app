@@ -6,11 +6,13 @@ const collectionSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Consumer",
     },
-    billId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Bill",
-      default: null,
-    },
+    billId: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Bill",
+        default: null,
+      },
+    ],
     paymentDate: {
       type: Date,
       default: Date.now(),
@@ -28,8 +30,13 @@ const collectionSchema = new mongoose.Schema(
       type: String,
       default: "Cash",
     },
-    paymentDescription: {
+    // paymentDescription: {
+    //   type: String,
+    // },
+    collectionType: {
       type: String,
+      enum: ["Membership Fee", "Water Bill"],
+      default: null,
     },
   },
   {

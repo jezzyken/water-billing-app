@@ -5,6 +5,8 @@ const itemController = require("../../controllers/billing.controller");
 
 router.get("/", itemController.get).post("/", itemController.add);
 
+router.get("/templates", itemController.sendHTMLTemplate)
+
 router
   .get("/:id", itemController.getById)
   .put("/:id", itemController.update)

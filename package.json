@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "setup-production": "npm run install-frontend && npm run build-frontend && npm install",
+    "install-frontend": "cd ../client && npm install",
+    "build-frontend": "cd ../client && npm run build"
   },
   "author": "Jezrell Jolampong",
   "license": "ISC",
@@ -12,6 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "handlebar": "^1.0.0",
     "mongoose": "^8.3.1"
   },
   "devDependencies": {
